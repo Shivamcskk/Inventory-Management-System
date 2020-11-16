@@ -23,7 +23,6 @@ export default function Product(){
     )
     var rows=[
         {name:"SHIVAM",surname:"CHAUDHARY",age:"21"},
-        {name:"ASHIKA",surname:"KARANTH",age:"21"},
         {name:"CHERRY",surname:"REDDY",age:"21"},
         {name:"ASHOK",surname:"BERA",age:"21"},
         {name:"CHUTIYA",surname:"BACKCHODI",age:"21"},

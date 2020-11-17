@@ -20,7 +20,7 @@ router.get("/",(req,res)=>{
 });
 
 
-router.get("/categories",(req,res)=>{
+router.post("/categories",(req,res)=>{
     const category = req.body.category;
     const sqlSelect = "SELECT * FROM PRODUCTS WHERE PRODUCTS.CATEGORY=?;";
     db.query(sqlSelect,[category],(err,result)=>{

@@ -10,7 +10,35 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Navbar from '../web/navbar';
+import Axios from 'axios';
+
 export default function Product(){
+   
+    const [inrows,setinRows]=useState([]);
+   const [row,setRow]=useState([]);
+    const fun = async () =>{
+        try{
+          const res =await Axios.get("http://localhost:3001/api/products");
+          console.log(res.data);
+         
+         setinRows(res.data);
+          setRow(res.data);
+         
+          
+         
+        
+      }
+        catch(err)
+        {
+    
+        }
+      }
+      if(row.length===0 ){
+          
+        fun();
+        console.log("1")
+        
+    }
 
     const useStyles =makeStyles
     ({
@@ -21,32 +49,35 @@ export default function Product(){
             }}
         
     )
-    var rows=[
-        {name:"SHIVAM",surname:"CHAUDHARY",age:"21"},
-        {name:"ASHIKA",surname:"KARANTH",age:"21"},
-        {name:"CHERRY",surname:"REDDY",age:"21"},
-        {name:"ASHOK",surname:"BERA",age:"21"},
-        {name:"CHUTIYA",surname:"BACKCHODI",age:"21"},
+    // var rows=[
+    //     {name:"SHIVAM",surname:"CHAUDHARY",age:"21"},
+    //     {name:"ASHIKA",surname:"KARANTH",age:"21"},
+    //     {name:"CHERRY",surname:"REDDY",age:"21"},
+    //     {name:"ASHOK",surname:"BERA",age:"21"},
+    //     {name:"CHUTIYA",surname:"BACKCHODI",age:"21"},
         
 
-    ]
+    // ]
+    
 
-   const [row,setRow]=useState(rows);
+
    const [q,setq]=useState();
     const classes = useStyles();
     const unclicked = ()=>{
-        setRow(rows);
+        setRow(inrows);
         setq("");
     }
     const clicked = ()=>{
 
-          var ne =  rows.filter((r)=>{
-               return r.name.toLowerCase().indexOf(q)>-1 || r.surname.toLowerCase().indexOf(q)>-1 || r.age.toLowerCase().indexOf(q)>-1;
+          var ne =  inrows.filter((r)=>{
+               return r.p_name.toLowerCase().indexOf(q)>-1 || r.brand.toLowerCase().indexOf(q)>-1 || r.category.toLowerCase().indexOf(q)>-1;
            });
             if(ne.length==0)
-            setRow([{name:"Not found",
-            surname:"Not found",
-            age:"Not founded"}])
+            setRow([{p_name:"Not found",
+            brand:"Not found",
+            category:"Not found",
+            price:"Not found"
+        }])
            else
             setRow(ne);
             
@@ -57,6 +88,7 @@ export default function Product(){
         return(
             
               <div className="up">
+                  
                   <Navbar/>
                    <TableContainer component={Paper} className="product" style={{width:1000}}>
                <div class="upper">
@@ -73,18 +105,20 @@ export default function Product(){
                <Table className={classes.table} aria-label="simple table">
                    <TableHead className="head">
                        <TableRow>
-                            <TableCell>NAME</TableCell>
-                            <TableCell >SURNAME</TableCell>
-                            <TableCell >AGE</TableCell>
+                            <TableCell>Product</TableCell>
+                            <TableCell >Category</TableCell>
+                            <TableCell >Brand</TableCell>
+                            <TableCell >Price</TableCell>
                        </TableRow>
                    </TableHead>
                    <TableBody>
                        {row.map((row,index)=>(
-                           <TableRow key={row.name} style ={ index % 2? { background: "#dddddd"}:{ background : "white" }}>
+                           <TableRow key={row.p_name} style ={ index % 2? { background: "#dddddd"}:{ background : "white" }}>
                             
-                       <TableCell >{row.name}</TableCell>
-                       <TableCell >{row.surname}</TableCell>
-                            <TableCell >{row.age}</TableCell>
+                       <TableCell >{row.p_name}</TableCell>
+                       <TableCell >{row.category}</TableCell>
+                            <TableCell >{row.brand}</TableCell>
+                       <TableCell >{row.price}</TableCell>
                     </TableRow>
         ))}
                    </TableBody>

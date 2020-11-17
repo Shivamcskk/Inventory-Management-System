@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql');
 
+const products = require('./routes/products.js');
+
 const bcrypt = require('bcrypt');
 const saltRounds=10;
 
@@ -33,14 +35,15 @@ app.use(session({
     })
 );
 
-
-
 const db = mysql.createPool({
     host:'localhost',
     user:'root',
     password:'',
     database:'dbms'
 });
+
+
+app.use("/api/products",products);
 
 app.post('/api/register',(req,res)=>{
     const username = req.body.username;

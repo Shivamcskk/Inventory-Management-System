@@ -16,9 +16,9 @@ export default function Home()
             <h1 className="h1">IT'S NICE TO MEET YOU</h1>
         </div>
         <div>
-            <button className="button">
-              <Link className="link" to="/login">Register/Login</Link>
-            </button>
+           
+              <Link className="link" to="/login"> <button className="button">Register/Login</button></Link>
+            
         </div>
         </div>
     </div>

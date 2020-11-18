@@ -3,8 +3,10 @@ import { Button } from './button'
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import Dropdown from './dropdown';
+import Axios from "axios";
 
 function Navbar() {
+
   
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
@@ -51,7 +53,7 @@ function Navbar() {
             onMouseLeave={onMouseLeave}
           >
             <Link
-              to='/category'
+              to='/categories'
               className='nav-links'
               onClick={closeMobileMenu}
             >

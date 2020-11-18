@@ -18,6 +18,38 @@ router.get("/",(req,res)=>{
         res.send(result);
     });
 });
+router.post('/recent',(req,res)=>{
+    const sqlInsert = "INSERT INTO recent VALUES(?);";
+
+   console.log(req.body.rec);
+        db.query(sqlInsert,[req.body.rec],(err,result)=>{
+            if(err) console.log(err);
+            console.log(result);
+            res.send(result);
+
+      
+    });
+    
+})
+router.get('/recent',(req,res)=>{
+    const sqlSelect ="SELECT * FROM RECENT;";
+    db.query(sqlSelect,(err,result)=>{
+        if(err) console.log(err);
+        console.log(result);
+        res.send(result[result.length-1]);
+    })
+})
+router.get("/categories",(req,res)=>{
+    
+    const sqlSelect = "SELECT CATEGORY FROM PRODUCTS;";
+
+    db.query(sqlSelect,(err,result)=>{
+        if(err) console.log(err);
+        console.log(result);
+        res.send(result);
+    });
+    
+});
 
 
 router.post("/categories",(req,res)=>{

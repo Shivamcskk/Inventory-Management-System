@@ -2,27 +2,72 @@ import React, { useState } from 'react';
 import { MenuItems } from "./Menuitems";
 import './dropdown.css';
 import { Link } from 'react-router-dom';
+import Axios from 'axios';
 
-function Dropdown() {
+function Dropdown(item) {
   const [click, setClick] = useState(false);
 
-  const handleClick = () => setClick(!click);
+  const handleClick = async(item) => {
+    console.log(item)
+    try{
+      const logg=await Axios.post("http://localhost:3001/api/products/recent",{
+        rec:item,
+        
+      });
+      console.log(logg.data);
+
+    }
+    catch{
+  
+    }
+       setClick(!click);
+       window.location.reload(false);
+  
+    Axios.defaults.withCredentials = true;
+    console.log("hahahahah")
+  }
+
+  const [row,setRow]=useState([]);
+  const fun = async () =>{
+      try{
+        const res =await Axios.get("http://localhost:3001/api/products/categories");
+        console.log(res.data);
+       
+       
+        setRow(res.data);
+       
+        
+       
+      
+    }
+      catch(err)
+      {
+  
+      }
+    }
+    if(row.length===0 ){
+        
+      fun();
+      console.log("1")
+      
+  }
 
   return (
     <>
       <ul
-        onClick={handleClick}
+        onClick={()=>setClick(false)}
         className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
       >
-        {MenuItems.map((item, index) => {
+        {row.map((item, index) => {
           return (
             <li key={index}>
               <Link
-                className={item.cName}
-                to={item.path}
-                onClick={() => setClick(false)}
+                className="dropdown-link"
+                to={'/categories'}
+                onClick={()=>handleClick(item.CATEGORY)}
               >
-                {item.title}
+                {/* {console.log(item.CATEGORY)} */}
+                {item.CATEGORY}
               </Link>
             </li>
           );

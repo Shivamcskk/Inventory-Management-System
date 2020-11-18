@@ -7,7 +7,7 @@ import Axios from 'axios';
 import Web from './component/web/web'
 import LoginApp from './loginapp';
 import Home from "./component/login/Home"
-import { Switch } from "@material-ui/core";
+import Categories from "./component/modules/categories"
 function App (){
   // const [name,setName]=useState({});
   
@@ -37,6 +37,7 @@ function App (){
        <Route path="/" exact component={Home}/> 
       <Route path="/login" component={LoginApp}/>
       <Route path="/products" component={Product}/>
+      <Route path="/categories" component={Categories}/>
       <Route path="/home" component={Web} />
       
       </Router>

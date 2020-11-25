@@ -19,12 +19,11 @@ router.get("/",(req,res)=>{
     });
 });
 router.post('/',(req,res)=>{
-    const sqlInsert = "INSERT INTO contact (name,email,message) VALUES(?,?,?);";
-    const name = req.body.name;
-    const email = req.body.email;
+    const sqlInsert = "INSERT INTO contact (username,message) VALUES(?,?);";
+    const username = req.body.username;
     const message = req.body.message;
    console.log(req.body.name);
-        db.query(sqlInsert,[name,email,message],(err,result)=>{
+        db.query(sqlInsert,[username,message],(err,result)=>{
             if(err) console.log(err);
             console.log(result);
             res.send(result);

@@ -41,7 +41,7 @@ router.get('/recent',(req,res)=>{
 })
 router.get("/categories",(req,res)=>{
     
-    const sqlSelect = "SELECT CATEGORY FROM PRODUCTS;";
+    const sqlSelect = "SELECT CATEGORY FROM CATEGORIES;";
 
     db.query(sqlSelect,(err,result)=>{
         if(err) console.log(err);

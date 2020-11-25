@@ -15,6 +15,7 @@ import Axios from 'axios';
 export default function Categories(){
    
     const [inrows,setinRows]=useState([]);
+    const [boo,setBoo]=useState(false);
    const [row,setRow]=useState([]);
     const fun = async () =>{
         try{
@@ -37,8 +38,8 @@ export default function Categories(){
     
         }
       }
-      if(row.length===0 ){
-          
+      if(!boo){
+          setBoo(true);
         fun();
         console.log("1")
         

@@ -1,0 +1,59 @@
+.order{
+    margin-top: 50px;
+    min-height: 70vh;
+    background-color: rgb(28, 27, 27);
+    margin-left: 320px;
+    margin-right: 360px;
+    
+}
+.or{
+    padding-top: 30px;
+    margin-left: 26px;
+    margin-bottom: 5px;
+}
+.co{
+   
+    margin-left: 250px;
+    
+   
+}
+.sel{
+    
+    margin-left: 28px;
+    display: inline-block;
+    width: 200px;
+    font-size:150%;
+    margin-top: 10px;
+}
+.in{
+    font-family:  "Comic Sans MS", cursive, sans-serif;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: inline-block;
+    width: 190px;
+    font-size:150%;
+    
+}
+.but {
+    width: 200px;
+    margin-left: 150px;
+    font-family: "Inter", sans-serif;
+    padding: 20px;
+    display: inline-block;
+   text-align: center;
+    border: none;
+    background-color: rgb(2, 2, 110);
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-top: 25px;
+ 
+    
+  }
+  .but:hover {
+    background-color: rosybrown;
+    color: black;
+  }

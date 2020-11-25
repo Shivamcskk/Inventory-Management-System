@@ -6,6 +6,7 @@ const mysql = require('mysql');
 
 const products = require('./routes/products.js');
 const contact=require('./routes/contact')
+const retailer=require('./routes/retail')
 
 const bcrypt = require('bcrypt');
 const saltRounds=10;
@@ -46,6 +47,7 @@ const db = mysql.createPool({
 
 app.use("/api/products",products);
 app.use("/api/contact",contact);
+app.use("/api/retailer",retailer);
 
 app.post('/api/register',(req,res)=>{
     const username = req.body.username;

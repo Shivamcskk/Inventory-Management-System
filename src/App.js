@@ -9,6 +9,7 @@ import LoginApp from './loginapp';
 import Home from "./component/login/Home"
 import Categories from "./component/modules/categories"
 import Contact from "./component/contact/contact"
+import Order from "./component/order/index"
 function App (){
   // const [name,setName]=useState({});
   
@@ -41,6 +42,7 @@ function App (){
       <Route path="/products" component={Product}/>
       <Route path="/categories" component={Categories}/>
       <Route path="/home" component={Web} />
+      <Route path="/order" component={Order}/>
       
       </Router>
     )

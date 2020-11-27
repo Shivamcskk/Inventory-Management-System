@@ -13,7 +13,7 @@ export default function Inorder()
     const [price,setprice]=useState("");
     const [no_items,setno_items]=useState("");
     const [retailer,setRetailer]=useState([]);
-    const [selectedOption,setselectedOption]=useState({});
+    const [selectedOption,setselectedOption]=useState("")
     const [loader, setLoader] = useState(false);
     {
         console.log(selectedOption.value);//selected option is retailer name 
@@ -47,9 +47,23 @@ export default function Inorder()
 
         return re;
     })
+    const sendDetails = async (e) =>{
+              
+                const res=await Axios.post("http://localhost:3001/api/order/in",{
+              p_name:p_name,
+                price:price,
+                r_name:selectedOption.value,
+                Category:Category,
+                brand:brand,
+                no_items:no_items
+
+        });
+        console.log(res);
+
+      }
     return(
         <div className={"order"} >
-          <form className={"or"} style={{width:"800px"}} >
+          <form className={"or"} style={{width:"800px"}} onSubmit={sendDetails} >
           <label className={"co"} >
                   <span  style={{color:"white", fontSize:"165%"}}>Retailer:</span>
                   <Select options={ret} value={selectedOption} className="sel" onChange={selectedOption=>setselectedOption(selectedOption)} />
@@ -81,7 +95,7 @@ export default function Inorder()
                
               </label>
               <label className={"co"}>
-                  <span  style={{color:"white", fontSize:"150%" ,marginRight:"-5px"}}>No_items:</span>
+                  <span  style={{color:"white", fontSize:"150%" ,marginRight:"40px"}}>Price:</span>
                   <input className="in" type="text" placeholder={"Price"} value={price} onChange={e=>{setprice(e.target.value)
                 console.log(price)}}/>
                
@@ -89,7 +103,7 @@ export default function Inorder()
               
               <button className="but"
           type="submit"
-       
+                    
         >
           Submit
         </button>
@@ -98,7 +112,7 @@ export default function Inorder()
           onClick={()=>{
                 setp_name("")
                 setprice("")
-                setselectedOption({})
+                setselectedOption("")
                 setCategory("")
                 setbrand("")
                 setno_items("")

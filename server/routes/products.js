@@ -23,8 +23,8 @@ router.post('/recent',(req,res)=>{
 
    console.log(req.body.rec);
         db.query(sqlInsert,[req.body.rec],(err,result)=>{
-            if(err) console.log(err);
-            console.log(result);
+            if(err) //console.log(err);
+            //console.log(result);
             res.send(result);
 
       

@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
-import './inorder.css'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Navbar from '../web/navbar';
 import Inorder from './inorder';
-import Inoreder from './inorder';
+import Outorder from './outorder';
 import {useState,useEffect} from 'react';
 export default function Order()
 {
+    
     const [inn,setinn]=useState(true);
     const [cur,setcur]=useState("Outgoing Order")
     return(
         <div>
             <Navbar/>
-            {
-                inn && <Inorder/>
-            }
+               
+               { inn && <Inorder/>}
+
+               {!inn && <Outorder/>} 
+           
             <div>
-                <button className="but" style={{marginLeft:"640px",backgroundColor:"red"}} onClick={
+                <button className="but" style={{marginLeft:"640px",backgroundColor:"#282828"}} onClick={
                     ()=>{
                         setinn(!inn);
                         if(inn)

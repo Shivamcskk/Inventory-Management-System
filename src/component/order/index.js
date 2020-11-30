@@ -10,7 +10,7 @@ export default function Order()
     const [inn,setinn]=useState(true);
     const [cur,setcur]=useState("Outgoing Order")
     return(
-        <div>
+        <div className="bck">
             <Navbar/>
                
                { inn && <Inorder/>}

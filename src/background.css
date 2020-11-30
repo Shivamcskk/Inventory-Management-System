@@ -1,0 +1,6 @@
+.background{
+    background: url("https://www.teahub.io/photos/full/90-902704_free-download-ocean-background-id-desktop-backgrounds-hd.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}

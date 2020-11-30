@@ -13,7 +13,7 @@ import Navbar from '../web/navbar';
 import Axios from 'axios';
 
 export default function Product(){
-   
+   const [log,setLog]=useState(false);
     const [inrows,setinRows]=useState([]);
    const [row,setRow]=useState([]);
     const fun = async () =>{
@@ -33,9 +33,10 @@ export default function Product(){
     
         }
       }
-      if(row.length===0 ){
+      if(!log){
           
         fun();
+        setLog(true);
         console.log("1")
         
     }

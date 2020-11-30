@@ -1,6 +1,8 @@
 //Custom Fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
-  
+  *{
+    font-family:  "Comic Sans MS", cursive, sans-serif;
+  }
 .App {
 
   min-height: 100vh;
@@ -9,7 +11,8 @@
   justify-content: center;
   align-items: center;
   font-family: "Open Sans", sans-serif;
-  background-image: url("https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_1280.jpg");
+
+  background-image: url("https://cutewallpaper.org/21/ocean-background-hd/Ocean-Backgrounds-free-download-PixelsTalkNet.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 

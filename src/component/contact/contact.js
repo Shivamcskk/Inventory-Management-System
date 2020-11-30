@@ -3,6 +3,7 @@ import "./contact.css"
 import Navbar from '../web//navbar'
 import Cimg from "../../contact.png"
 import {useState} from "react"
+import emailjs from 'emailjs-com';
 import Axios from "axios";
 const Contact = () => {
     const [name, setName] = useState("");
@@ -17,6 +18,14 @@ const Contact = () => {
         username: name,
         message: message
        })
+  
+
+    emailjs.sendForm('service_o2v91xk', 'template_qeiqaob', e.target, 'user_5yFTKjoUBrfF188sjZmP4')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
        console.log(logg.data);
      
   
@@ -35,6 +44,7 @@ const Contact = () => {
         <label>UserName</label>
         <input
         required
+        name="username"
           placeholder="UserName"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -45,6 +55,7 @@ const Contact = () => {
         <label>Message</label>
         <textarea
             required
+            name="message"
           placeholder="Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}

@@ -14,7 +14,7 @@ export default function Inorder()
     const [no_items,setno_items]=useState("");
     const [retailer,setRetailer]=useState([]);
     const [selectedOption,setselectedOption]=useState("")
-    const [loader, setLoader] = useState(false);
+    const [username, setusername] = useState("");
     {
         console.log(selectedOption.value);//selected option is retailer name 
         console.log(p_name);
@@ -25,8 +25,18 @@ export default function Inorder()
     const fun = async () =>{
         try{
             const ress =await Axios.get("http://localhost:3001/api/retailer");
+         
             console.log(ress.data);
             setRetailer(ress.data);
+            const res =await Axios.get("http://localhost:3001/api/login");
+      
+            if(res.data.loggedIn == true){
+              setusername(res.data.user[0].username);
+            
+              
+              
+             
+            }
          }
         catch(err)
         {
@@ -55,9 +65,11 @@ export default function Inorder()
                 r_name:selectedOption.value,
                 Category:Category,
                 brand:brand,
-                no_items:no_items
+                no_items:no_items,
+                username:username
 
         });
+      
         console.log(res);
 
       }

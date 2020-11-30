@@ -9,12 +9,15 @@ const contact=require('./routes/contact')
 const retailer=require('./routes/retail')
 const order=require('./routes/order')
 const stocks =require('./routes/stocks')
-
+const location =require('./routes/location')
 const bcrypt = require('bcrypt');
+const users=require('./routes/users')
 const saltRounds=10;
+const history =require('./routes/history')
 
 const cookieParser = require('body-parser');
 const session = require('express-session');
+const { use } = require('./routes/retail');
 let user = [];
 
 app.use(express.json());
@@ -52,6 +55,9 @@ app.use("/api/contact",contact);
 app.use("/api/retailer",retailer)
 app.use("/api/order/",order)
 app.use("/api/stocks/",stocks)
+app.use('/api/location',location)
+app.use('/api/users',users)
+app.use('/api/history',history)
 
 app.post('/api/register',(req,res)=>{
     const username = req.body.username;
@@ -105,6 +111,7 @@ app.post('/api/login',(req,res)=>{
 app.get("/api/login",(req,res)=>{
     //manually updating user bz automatic sessions remembering is not done
     const len=user.length;
+    console.log(req.session)
     req.session.user = user[len-1];
     
     if(user.length>0){
@@ -113,6 +120,13 @@ app.get("/api/login",(req,res)=>{
         res.send({loggedIn:false});
     }
 });
+app.get("/api/logout",(req,res)=>{
+    
+    console.log("done");
+    user=[];
+    res.send("done");
+    
+})
 
 
 app.listen(3001,()=>{

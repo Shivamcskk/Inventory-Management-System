@@ -15,6 +15,7 @@ export default function Outorder()
     const [no_items,setno_items]=useState("");
     const [retailer,setRetailer]=useState([]);
     const [selectedOption,setselectedOption]=useState("");
+    const [username,setusername]=useState("");
 
     // {
     //     console.log(selectedOption.value);//selected option is retailer name 
@@ -27,6 +28,15 @@ export default function Outorder()
             const ress =await Axios.get("http://localhost:3001/api/retailer");
             const res =await Axios.get("http://localhost:3001/api/products");
             const re =await Axios.get("http://localhost:3001/api/stocks");
+            const resss =await Axios.get("http://localhost:3001/api/login");
+      
+            if(resss.data.loggedIn == true){
+              setusername(resss.data.user[0].username);
+            
+              
+              
+             
+            }
             console.log(res.data)
             setip_name(res.data);
             setRetailer(ress.data);
@@ -66,7 +76,8 @@ export default function Outorder()
                 p_name:p_name.value,
                 price:price,
                 r_name:selectedOption.value,
-                no_items:no_items
+                no_items:no_items,
+                username:username
 
         });
         console.log(res);

@@ -30,7 +30,10 @@ function Navbar() {
       setDropdown(false);
     }
   };
-
+  const sendDetail=async(e)=>{
+  const ress =await Axios.get("http://localhost:3001/api/logout");
+  console.log(ress);
+  }
   return (
     <>
       <nav className='navbar'>
@@ -42,8 +45,8 @@ function Navbar() {
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          <li className='nav-item'>
-            <Link to='/login' className='nav-links' onClick={closeMobileMenu}>
+          <li className='nav-item'> 
+            <Link to='/login' className='nav-links'  onClick={sendDetail}>
               Logout
             </Link>
           </li>

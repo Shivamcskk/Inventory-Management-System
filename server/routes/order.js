@@ -10,6 +10,7 @@ const db = mysql.createPool({
 });
 
 router.post("/in",async(req,res)=>{
+    console.log(req.body);
     const category = req.body.Category;
     const sqlInsert = "INSERT INTO categories (category) VALUES(?);";
  
@@ -41,9 +42,11 @@ router.post("/in",async(req,res)=>{
                      db.query(mod,[item_left,p_name],(e,r)=>{
                          if(e)console.log(e);
                          console.log(r);
-                         const sqlInsert4="INSERT INTO orders (p_name,r_name,no_items,o_type,in_price,ttl_price) VALUES(?,?,?,?,?,?);";
+                         const sqlInsert4="INSERT INTO orders (p_name,r_name,no_items,o_type,in_price,ttl_price,username) VALUES(?,?,?,?,?,?,?);";
                          const ttl_price=price*item_left;
-                         db.query(sqlInsert4,[p_name,req.body.r_name,item_left,1,price,ttl_price],(e,r)=>{
+                         const username=req.body.username;
+                         console.log(username);
+                         db.query(sqlInsert4,[p_name,req.body.r_name,item_left,1,price,ttl_price,username],(e,r)=>{
                              if(e)console.log(e)
                              console.log(r)
                          })
@@ -53,13 +56,14 @@ router.post("/in",async(req,res)=>{
                     
                     else 
                     {
-                            console.log(result);
-                            const sqlInsert4="INSERT INTO orders (p_name,r_name,no_items,o_type,in_price,ttl_price) VALUES(?,?,?,?,?,?);";
-                            const ttl_price=price*item_left;
-                            db.query(sqlInsert4,[p_name,req.body.r_name,item_left,1,price,ttl_price],(e,r)=>{
-                                if(e)console.log(e)
-                                console.log(r)
-                            })
+                          
+                            const sqlInsert4="INSERT INTO orders (p_name,r_name,no_items,o_type,in_price,ttl_price,username) VALUES(?,?,?,?,?,?,?);";
+                         const ttl_price=price*item_left;
+                         const username=req.body.username;
+                         db.query(sqlInsert4,[p_name,req.body.r_name,item_left,1,price,ttl_price,username],(e,r)=>{
+                             if(e)console.log(e)
+                             console.log(r)
+                         })
                     }
                    
                 });
@@ -79,7 +83,7 @@ router.post("/out",async(req,res)=>{
     const price=req.body.price;
     const r_name=req.body.r_name;
     const no_items=req.body.no_items;
-    console.log(req.body.no_items);
+    console.log(req.body);
 
     const sqlUpdate= "UPDATE stocks SET item_left=item_left-? WHERE p_name=?;";
                      db.query(sqlUpdate,[no_items,p_name],(e,r)=>{
@@ -88,9 +92,18 @@ router.post("/out",async(req,res)=>{
                         
                         
                         })
-    const sqlInsert4="INSERT INTO orders (p_name,r_name,no_items,o_type,in_price,ttl_price) VALUES(?,?,?,?,?,?);";
+    const sqls="DELETE FROM STOCKS WHERE ITEM_LEFT=?;"
+    db.query(sqls,[0],(e,r)=>{
+        if(e)console.log(e);
+        console.log(r);
+       
+       
+       })
+
+    const sqlInsert4="INSERT INTO orders (p_name,r_name,no_items,o_type,in_price,ttl_price,username) VALUES(?,?,?,?,?,?,?);";
                         const ttl_price=price*no_items;
-                        db.query(sqlInsert4,[p_name,r_name,no_items,0,price,ttl_price],(e,r)=>{
+                        const username=req.body.username;
+                        db.query(sqlInsert4,[p_name,r_name,no_items,0,price,ttl_price,username],(e,r)=>{
                             if(e)console.log(e)
                             console.log(r)
                         })

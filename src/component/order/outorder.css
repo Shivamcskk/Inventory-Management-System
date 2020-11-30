@@ -17,6 +17,10 @@
     
    
 }
+.bck{
+    height: 100vh;
+    background:url("https://images2.alphacoders.com/785/thumb-1920-78512.jpg");
+}
 .sel{
     color: black;
     margin-left: 28px;

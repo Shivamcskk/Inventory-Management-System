@@ -63,7 +63,7 @@
   position: relative;
   z-index: 99;
   .container {
-    display: flex;
+    display: inline-block;
     justify-content: center;
     align-items: center;
     background-color: white;
@@ -71,7 +71,7 @@
     border-radius: 4px;
     position: relative;
     z-index: 99;
-    width: 100%;
+    width: 20em;
     height: 100%;
     z-index: 99;
     padding: 17px 10px;

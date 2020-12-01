@@ -11,19 +11,19 @@ export default class LoginApp extends React.Component {
 
   componentDidMount() {
     //Add .right by default
-    this.rightSide.classList.add("right");
+    // this.rightSide.classList.add("right");
   }
 
   changeState() {
     const { isLogginActive } = this.state;
 
-    if (isLogginActive) {
-      this.rightSide.classList.remove("right");
-      this.rightSide.classList.add("left");
-    } else {
-      this.rightSide.classList.remove("left");
-      this.rightSide.classList.add("right");
-    }
+    // if (isLogginActive) {
+    //   this.rightSide.classList.remove("right");
+    //   this.rightSide.classList.add("left");
+    // } else {
+    //   this.rightSide.classList.remove("left");
+    //   this.rightSide.classList.add("right");
+    // }
     this.setState(prevState => ({ isLogginActive: !prevState.isLogginActive }));
   }
 
@@ -34,36 +34,24 @@ export default class LoginApp extends React.Component {
     return (
       <div className="App">
         <div className="login">
-          <div className="container" ref={ref => (this.container = ref)}>
+          <div className="container" style={{display:"inline-block",marginLeft:"300px",marginRight:"100px"}} ref={ref => (this.container = ref)}>
             {isLogginActive && (
               <Login containerRef={ref => (this.current = ref)} />
             )}
             {!isLogginActive && (
               <Register containerRef={ref => (this.current = ref)} />
             )}
-          </div>
-          <RightSide
-            current={current}
             
-            containerRef={ref => (this.rightSide = ref)}
-            onClick={this.changeState.bind(this)}
-          />
+          </div>
+          <div style={{display:"flex",width:"200px",marginRight:"250px"}}  >
+                <button style={{width:"200px",height:"500px",backgroundColor:"rgb(28, 27, 27)",fontSize:"200%", borderColor:"whitesmoke",borderSize:"10px", color:"white",overflow:"visible"}} onClick={()=>{this.setState(prevState => ({ isLogginActive: !prevState.isLogginActive }))}}>
+                  {current}
+                </button>
+          </div>
+         
         </div>
       </div>
     );
   }
 }
 
-const RightSide = props => {
-  return (
-    <div
-      className="right-side"
-      ref={props.containerRef}
-      onClick={props.onClick}
-    >
-      <div className="inner-container">
-        <div className="text">{props.current}</div>
-      </div>
-    </div>
-  );
-}

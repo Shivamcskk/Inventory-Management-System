@@ -34,7 +34,7 @@ return (
     <div className="header">Register</div>
     <div className="content">
       <div className="image">
-      <img style={{width:"200px",height:"200px"}} src={loginImg} />
+      <img style={{width:"150px",height:"150px"}} src={loginImg} />
       </div>
       <div className="form">
         <div className="form-group">

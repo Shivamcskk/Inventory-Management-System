@@ -29,11 +29,11 @@ router.post('/',(req,res)=>{
         //console.log(result);
         if(result.length>0)
         {
-            const sqlInsert = "update userdetail set name=?,address=?,mobile=? where username=?;";
+            const sqlInsert = "update userdetail set name=?,door_no=?,str_name=?,city=?,mobile=? where username=?;";
             const username = req.body.username;
             
            console.log(req.body.name);
-                db.query(sqlInsert,[req.body.name,req.body.address,req.body.mobile,username],(err,result)=>{
+                db.query(sqlInsert,[req.body.name,req.body.door_no,req.body.str_name,req.body.city,req.body.mobile,username],(err,result)=>{
                     if(err) console.log(err);
                     console.log(result);
                     res.send(result);
@@ -42,11 +42,11 @@ router.post('/',(req,res)=>{
             });
         }
         else{
-            const sqlInsert = "INSERT INTO userdetail (name,address,mobile,username) VALUES(?,?,?,?);";
+            const sqlInsert = "INSERT INTO userdetail (name,door_no,str_name,city,mobile,username) VALUES(?,?,?,?);";
             const username = req.body.username;
             
            console.log(req.body.name);
-                db.query(sqlInsert,[req.body.name,req.body.address,req.body.mobile,username],(err,result)=>{
+                db.query(sqlInsert,[req.body.name,req.body.door_no,req.body.str_name,req.body.city,req.body.mobile,username],(err,result)=>{
                     if(err) console.log(err);
                     console.log(result);
                     res.send(result);

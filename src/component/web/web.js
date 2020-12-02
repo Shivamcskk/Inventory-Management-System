@@ -105,7 +105,7 @@ export default function Web(props){
            
            <h1 style={{color:"black"}}>Name:{detail[0].name}</h1>
            <br/>
-           <h1 style={{color:"black"}}>Address:{detail[0].address}</h1>
+           <h1 style={{color:"black"}}>Address:{detail[0].door_no} {detail[0].str_name} {detail[0].city}</h1>
            <br/>
            <h1 style={{color:"black"}}>Mobile:{detail[0].mobile}</h1>
            <br/>

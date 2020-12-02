@@ -11,6 +11,9 @@ const User = () => {
     const [name,setname]=useState("");
     const [mobile,setmobile]=useState("");
     const [address,setaddress]=useState("");
+    const [door_no,setdoor_no]=useState("");
+    const [str_name,setstr_name]=useState("");
+    const [city,setcity]=useState("");
     const [redirect,setredirect]=useState(false);
 
     const fun= async()=>{
@@ -35,7 +38,9 @@ const User = () => {
         const result=await Axios.post("http://localhost:3001/api/users",{
             username:username,
             mobile:mobile,
-            address:address,
+            door_no:door_no,
+            str_name:str_name,
+            city:city,
             name:name
         })
    
@@ -45,7 +50,7 @@ const User = () => {
     
      <div className="background">
          <Navbar/>
-         <div className={"order"} style={{minHeight:"60vh"}} >
+         <div className={"order"} style={{minHeight:"70vh"}} >
          <form className={"or"} style={{width:"800px"}} onSubmit={(e)=>{sendDetails();
         setredirect(true)}
         } >
@@ -62,8 +67,16 @@ const User = () => {
          <input className="in" type="text" value={mobile}   onChange={e=>setmobile(e.target.value)} />
         </label>
         <label className={"co"} >
-         <span  style={{color:"white", fontSize:"165%",marginRight:"26px"}}>Address:</span>
-         <input className="in" type="text" value={address}   onChange={e=>setaddress(e.target.value)} />
+         <span  style={{color:"white", fontSize:"165%",marginRight:"26px"}}>Door_no:</span>
+         <input className="in" type="text" value={door_no}   onChange={e=>setdoor_no(e.target.value)} />
+        </label>
+        <label className={"co"} >
+         <span  style={{color:"white", fontSize:"165%",marginRight:"26px"}}>Str_name:</span>
+         <input className="in" type="text" value={str_name}   onChange={e=>setstr_name(e.target.value)} />
+        </label>
+        <label className={"co"} >
+         <span  style={{color:"white", fontSize:"165%",marginRight:"26px"}}>City:</span>
+         <input className="in" type="text" value={city}   onChange={e=>setcity(e.target.value)} />
         </label>
         
        

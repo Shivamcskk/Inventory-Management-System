@@ -71,7 +71,8 @@ export default function Categories(){
             setRow([{p_name:"Not found",
             brand:"Not found",
             category:"Not found",
-            price:"Not found"
+            price:"Not found",
+            Stocks:"Not found"
         }])
            else
             setRow(ne);
@@ -104,6 +105,7 @@ export default function Categories(){
                             <TableCell >Category</TableCell>
                             <TableCell >Brand</TableCell>
                             <TableCell >Price</TableCell>
+                            <TableCell >Stocks</TableCell>
                        </TableRow>
                    </TableHead>
                    <TableBody>
@@ -114,6 +116,7 @@ export default function Categories(){
                        <TableCell >{row.category}</TableCell>
                             <TableCell >{row.brand}</TableCell>
                        <TableCell >{row.price}</TableCell>
+                       <TableCell>{row.item_left}</TableCell>
                     </TableRow>
         ))}
                    </TableBody>

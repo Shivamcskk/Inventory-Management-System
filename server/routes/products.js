@@ -54,7 +54,7 @@ router.get("/categories",(req,res)=>{
 
 router.post("/categories",(req,res)=>{
     const category = req.body.category;
-    const sqlSelect = "SELECT * FROM PRODUCTS WHERE PRODUCTS.CATEGORY=?;";
+    const sqlSelect = "SELECT p.p_name,p.category,p.brand,p.price,s.item_left from products as p,stocks as s where p.p_name=s.p_name AND p.category=?;";
     db.query(sqlSelect,[category],(err,result)=>{
         if(err) console.log(err);
         console.log(result);

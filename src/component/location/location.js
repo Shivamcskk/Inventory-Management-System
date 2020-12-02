@@ -9,22 +9,23 @@ export default function Location()
 {
     
     const [inn,setinn]=useState(true);
-    const [cur,setcur]=useState("INSERT NEW LOCATION")
+    const [cur,setcur]=useState("EDIT LOCATION")
     return(
         <div className="background">
             <Navbar/>
-             {!inn && <New/>}  
-              {inn && <Old/>} 
+             {inn && <New/>}  
+              {!inn && <Old/>} 
            
             <div>
                 <button className="but" style={{marginLeft:"640px",backgroundColor:"#282828"}} onClick={
                     ()=>{
                         setinn(!inn);
                         if(inn)
-                        setcur("EDIT LOCATION")
+                        setcur("INSERT NEW LOCATION")
+                     
                         else
                         
-                        setcur("INSERT NEW LOCATION")
+                        setcur("EDIT LOCATION")
                     }
                 }>
                     {cur}

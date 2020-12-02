@@ -6,25 +6,25 @@ import Axios from 'axios';
 
 function Dropdown(item) {
   const [click, setClick] = useState(false);
+  const [log,setlog]=useState(false);
 
   const handleClick = async(item) => {
     console.log(item)
-    try{
+    
+    setlog(true);
+    console.log(log);
+    setClick(!click);
+    
+
+  Axios.defaults.withCredentials = true;
+  console.log("hahahahah")
+    
       const logg=await Axios.post("http://localhost:3001/api/products/recent",{
         rec:item,
         
       });
-      console.log(logg.data);
+      
 
-    }
-    catch{
-  
-    }
-       setClick(!click);
-       window.location.reload(false);
-  
-    Axios.defaults.withCredentials = true;
-    console.log("hahahahah")
   }
 
   const [row,setRow]=useState([]);
@@ -35,6 +35,7 @@ function Dropdown(item) {
        
        
         setRow(res.data);
+        {console.log(res.data)}
        
         
        
@@ -59,15 +60,16 @@ function Dropdown(item) {
         className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
       >
         {row.map((item, index) => {
+          {console.log(item.category)}
           return (
             <li key={index}>
               <Link
                 className="dropdown-link"
                 to={'/categories'}
-                onClick={()=>handleClick(item.CATEGORY)}
+                onClick={()=>handleClick(item.category)}
               >
-                {/* {console.log(item.CATEGORY)} */}
-                {item.CATEGORY}
+                { log && window.location.reload(false)}
+                {item.category}
               </Link>
             </li>
           );

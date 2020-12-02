@@ -53,11 +53,11 @@ function App (){
       <Route path="/products" component={Product}/>
       <Route path="/categories" component={Categories}/>
       <Route path="/home" component={Web} />
-      <Route path="/order" component={Order}/>
+      <Route path="/order" exact component={Order}/>
       <Route path="/location" component={Location}/>
       <Route path="/retailer" component={Retailer}/>
       <Route path="/history" exact component={All}/>
-      <Route path="/history/all" exact component={History}/>
+      <Route path="/historyall" exact component={History}/>
       </Router>
     )
   

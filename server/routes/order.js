@@ -12,18 +12,9 @@ const db = mysql.createPool({
 router.post("/in",async(req,res)=>{
     console.log(req.body);
     const category = req.body.Category;
-    const sqlInsert = "INSERT INTO categories (category) VALUES(?);";
- 
-    console.log(category);
-       db.query(sqlInsert,[category],(err,result)=>{
-            if(err) console.log(err);
-            console.log(result);
-            const sqlInsert1 = "INSERT INTO brands (brand) VALUES(?);";
-            const brand = req.body.brand;
-           console.log(brand);
-                db.query(sqlInsert1,[brand],(err,result)=>{
-                    if(err) console.log(err);
-                    console.log(result);
+    
+    const brand = req.body.brand;
+           
                     const sqlInsert2 = "INSERT INTO products (p_name,category,brand,price) VALUES(?,?,?,?);";
        
             const p_name=req.body.p_name;
@@ -68,9 +59,7 @@ router.post("/in",async(req,res)=>{
                    
                 });
                    
-                });
-                   
-                });
+           
         
         });
        

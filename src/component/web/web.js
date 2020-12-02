@@ -93,7 +93,7 @@ export default function Web(props){
                </div>
                <div className="size">
                 
-                <Link to="/history/all"><button className="loc"><h1 style={{color:"black"}}>Inventory Order History</h1></button></Link>
+                <Link to="/historyall"><button className="loc"><h1 style={{color:"black"}}>Inventory Order History</h1></button></Link>
                 
  
               

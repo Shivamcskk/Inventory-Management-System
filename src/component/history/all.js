@@ -73,7 +73,7 @@ export default function All(){
     const clicked = ()=>{
 
           var ne =  inrows.filter((r)=>{
-               return r.p_name.toLowerCase().indexOf(q)>-1 || r.r_name.toLowerCase().indexOf(q)>-1 || r.date.toLowerCase().indexOf(q)>-1 ||r.o_type.toLowerCase().indexOf(q)>-1;
+            return r.ordNo==q ||r.p_name.toLowerCase().indexOf(q)>-1 || r.r_name.toLowerCase().indexOf(q)>-1 || r.date.toLowerCase().indexOf(q)>-1 ||r.o_type.toLowerCase().indexOf(q)>-1;
            });
             if(ne.length==0)
             setRow([{

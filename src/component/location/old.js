@@ -63,20 +63,20 @@ const sendDetails= async(e)=>{
          
 </label >
 <label className={"co"} >
-<span  style={{color:"white", fontSize:"165%",marginRight:"38px"}}>Zone:</span>
-<input className="in" type="text" placeholder={Zone} Value={Zone} onChange={e=>{setZone(e.target.value)
+<span  style={{color:"white", fontSize:"165%",marginRight:"41px"}}>Zone:</span>
+<input required className="in" type="text" placeholder={Zone} Value={Zone} onChange={e=>{setZone(e.target.value)
             console.log(Zone)}}/>
 </label>
 
 <label className={"co"} >
-<span  style={{color:"white", fontSize:"165%",marginRight:"46px"}}>Row:</span>
-<input className="in" type="text" placeholder={Row} Value={Row} onChange={e=>{setRow(e.target.value)
+<span  style={{color:"white", fontSize:"165%",marginRight:"53px"}}>Row:</span>
+<input required className="in" type="text" placeholder={Row} Value={Row} onChange={e=>{setRow(e.target.value)
             console.log(Row)}}/>
 </label>
 
 <label className={"co"} >
-<span  style={{color:"white", fontSize:"165%",marginRight:"5px"}}>Column:</span>
-<input className="in" type="text" placeholder={Column} Value={Column} onChange={e=>{setColumn(e.target.value)
+<span  style={{color:"white", fontSize:"165%",marginRight:"17px"}}>Column:</span>
+<input required className="in" type="text" placeholder={Column} Value={Column} onChange={e=>{setColumn(e.target.value)
             console.log(Column)}}/>
 </label>
 <button className="buttt"

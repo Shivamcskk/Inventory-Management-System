@@ -26,12 +26,12 @@ function New()
                         
                     </label>
                     <label className={"co"} >
-                        <span style={{color:"white", fontSize:"165%"}}>Retailer Address:</span>
+                        <span style={{color:"white", fontSize:"165%",marginRight:"-10px"}}>Retailer Address:</span>
                         <input className="in" type="text" value={r_address} onChange={e=>{setr_address(e.target.value)}}/>
                         
                     </label>
                     <label className={"co"} >
-                        <span style={{color:"white", fontSize:"165%"}}>Retailer Number:</span>
+                        <span style={{color:"white", fontSize:"165%",marginRight:"-5px"}}>Retailer Number:</span>
                         <input className="in" type="text" value={r_number} onChange={e=>{setr_number(e.target.value)}}/>
                         
                     </label>

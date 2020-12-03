@@ -1,7 +1,7 @@
 .div{
     width: 100%;
     min-height: 100vh;
-    background-image: url("https://wpamelia.com/wp-content/uploads/2019/02/astronomy-constellation-dark-998641.jpg");
+    background-image: url("https://i.pinimg.com/originals/4f/6d/05/4f6d052bb1b26150115888ea06d4c106.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -20,6 +20,7 @@
 }
 
 .button{
+    
     width: 200px;
     height: 70px;
     border-radius: 5px;
@@ -27,14 +28,18 @@
     color: black;
     background-color: white;
     font-size: 170%;
-    border-width: 5px;
-    border-color: white;
+    border-width: 2px;
+    border-color: black;
    
 }
 .button:hover{
     color: rgb(26, 14, 14);
    
-    background-color: #1888ff;
+    background-color: black;
+    color:wheat;
+    border-width: 2px;
+    border-color: white;
+    
    
 }
 

@@ -67,15 +67,15 @@ const User = () => {
          <input className="in" type="text" value={mobile}   onChange={e=>setmobile(e.target.value)} />
         </label>
         <label className={"co"} >
-         <span  style={{color:"white", fontSize:"165%",marginRight:"26px"}}>Door_no:</span>
+         <span  style={{color:"white", fontSize:"165%",marginRight:"15px"}}>Door_no:</span>
          <input className="in" type="text" value={door_no}   onChange={e=>setdoor_no(e.target.value)} />
         </label>
         <label className={"co"} >
-         <span  style={{color:"white", fontSize:"165%",marginRight:"26px"}}>Str_name:</span>
+         <span  style={{color:"white", fontSize:"165%",marginRight:"-4px"}}>Str_name:</span>
          <input className="in" type="text" value={str_name}   onChange={e=>setstr_name(e.target.value)} />
         </label>
         <label className={"co"} >
-         <span  style={{color:"white", fontSize:"165%",marginRight:"26px"}}>City:</span>
+         <span  style={{color:"white", fontSize:"165%",marginRight:"70px"}}>City:</span>
          <input className="in" type="text" value={city}   onChange={e=>setcity(e.target.value)} />
         </label>
         

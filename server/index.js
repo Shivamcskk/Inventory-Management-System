@@ -14,6 +14,7 @@ const bcrypt = require('bcrypt');
 const users=require('./routes/users')
 const saltRounds=10;
 const history =require('./routes/history')
+const cookieparser=require('cookie-parser');
 
 const cookieParser = require('body-parser');
 const session = require('express-session');
@@ -28,7 +29,8 @@ app.use(
     credentials:true,
     })
 );
-app.use(cookieParser());
+app.use(cookieparser('secret'));
+app.use(cookieParser('secret'));
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(session({
@@ -37,7 +39,9 @@ app.use(session({
     resave:false,
     saveUninitialized:false,
     cookie:{
-        expires: 60*60*24,
+        expires: 60*60*60*60,
+        httpOnly:false,
+        secure:false
     },
     })
 );
@@ -81,7 +85,7 @@ app.post('/api/login',(req,res)=>{
     const sqlSelect = "SELECT * FROM users WHERE username=?;";
     db.query(sqlSelect,username,(err,result)=>{
         if(err){
-            console.log('fucked');
+            console.log('error');
             res.send({err:err});
         }
 
@@ -92,6 +96,7 @@ app.post('/api/login',(req,res)=>{
                     console.log(result.username)
                     user.push(result); //manually saving the result and updating sessions
                     req.session.user = result;
+                    res.cookie('id', username, { signed: true, httpOnly: true });
                     console.log(req.session.user);
                     console.log(responce);
                     res.send(result);
@@ -113,9 +118,13 @@ app.get("/api/login",(req,res)=>{
     const len=user.length;
     console.log(req.session)
     req.session.user = user[len-1];
+    if(req.session.view)
+    req.session.view++;
+    else
+    req.session.view=1;
     
     if(user.length>0){
-        res.send({ loggedIn:true , user:req.session.user });
+        res.send({ loggedIn:true , user:req.session.user,view:req.session.view});
     }else{
         res.send({loggedIn:false});
     }

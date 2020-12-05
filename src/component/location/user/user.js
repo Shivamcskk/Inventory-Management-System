@@ -8,9 +8,10 @@ import { Link, Redirect } from 'react-router-dom';
 const User = () => {
     const [log,setLog]=useState(false);
     const [username,setusername]=useState("");
-    const [name,setname]=useState("");
+    const [fname,setfname]=useState("");
+    const [lname,setlname]=useState("");
     const [mobile,setmobile]=useState("");
-    const [address,setaddress]=useState("");
+  
     const [door_no,setdoor_no]=useState("");
     const [str_name,setstr_name]=useState("");
     const [city,setcity]=useState("");
@@ -22,6 +23,15 @@ const User = () => {
          
             console.log(ress.data.user[0].username);
             setusername(ress.data.user[0].username);
+            const res =await Axios.post("http://localhost:3001/api/users/in",{username: await ress.data.user[0].username});
+            console.log(res.data);
+            setfname(await res.data[0].fname);
+            setlname(await res.data[0].lname);
+            setmobile(await res.data[0].mobile);
+            setdoor_no(await res.data[0].door_no);
+            setstr_name(await res.data[0].str_name);
+            setcity(await res.data[0].city);
+            
          }
         catch(err)
         {
@@ -41,7 +51,8 @@ const User = () => {
             door_no:door_no,
             str_name:str_name,
             city:city,
-            name:name
+            fname:fname,
+            lname:lname
         })
    
        
@@ -59,8 +70,12 @@ const User = () => {
          <input className="in" type="text" value={username} disabled/>
         </label>
         <label className={"co"} >
-         <span  style={{color:"white", fontSize:"165%",marginRight:"48px"}}>Name:</span>
-         <input className="in" type="text" value={name}   onChange={e=>setname(e.target.value)} />
+         <span  style={{color:"white", fontSize:"165%",marginRight:"36px"}}>FName:</span>
+         <input className="in" type="text" value={fname}   onChange={e=>setfname(e.target.value)} />
+        </label>
+        <label className={"co"} >
+         <span  style={{color:"white", fontSize:"165%",marginRight:"36px"}}>LName:</span>
+         <input className="in" type="text" value={lname}   onChange={e=>setlname(e.target.value)} />
         </label>
         <label className={"co"} >
          <span  style={{color:"white", fontSize:"165%",marginRight:"37px"}}>Mobile:</span>

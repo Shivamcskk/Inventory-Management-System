@@ -15,6 +15,7 @@ import User from './component/location/user/user'
 import Retailer from "./component/retailer/index"
 import History from './component/history/history'
 import All from "./component/history/all"
+import {ProtectedRoute} from './protectedRoute';
 function App (){
   // const [online,setonline]=useState(false);
   // const [log,setLog]=useState(false);
@@ -47,17 +48,17 @@ function App (){
        <Route path="/" exact component={Home}/> 
        <Route path="/login" component={LoginApp}/>
        
-          <Route path="/users" exact component={User}/> 
-       <Route path="/contact-us" component={Contact}/>
+          <ProtectedRoute path="/users" exact component={User}/> 
+       <ProtectedRoute path="/contact-us" component={Contact}/>
        
-      <Route path="/products" component={Product}/>
-      <Route path="/categories" component={Categories}/>
-      <Route path="/home" component={Web} />
-      <Route path="/order" exact component={Order}/>
-      <Route path="/location" component={Location}/>
-      <Route path="/retailer" component={Retailer}/>
-      <Route path="/history" exact component={All}/>
-      <Route path="/historyall" exact component={History}/>
+      <ProtectedRoute path="/products" component={Product}/>
+      <ProtectedRoute path="/categories" component={Categories}/>
+      <ProtectedRoute path="/home" component={Web} />
+      <ProtectedRoute path="/order" exact component={Order}/>
+      <ProtectedRoute path="/location" component={Location}/>
+      <ProtectedRoute path="/retailer" component={Retailer}/>
+      <ProtectedRoute path="/history" exact component={All}/>
+      <ProtectedRoute path="/historyall" exact component={History}/>
       </Router>
     )
   

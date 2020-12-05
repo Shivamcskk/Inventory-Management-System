@@ -3,6 +3,7 @@ import { Button } from './button'
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import Dropdown from './dropdown';
+import Auth from '../../value'
 import Axios from "axios";
 
 function Navbar() {
@@ -32,7 +33,9 @@ function Navbar() {
   };
   const sendDetail=async(e)=>{
   const ress =await Axios.get("http://localhost:3001/api/logout");
+  Auth.signout();
   console.log(ress);
+ 
   }
   return (
     <>
@@ -48,6 +51,7 @@ function Navbar() {
           <li className='nav-item'> 
             <Link to='/login' className='nav-links'  onClick={sendDetail}>
               Logout
+             
             </Link>
           </li>
           <li

@@ -1,6 +1,6 @@
 import React from "react";
 import { Login, Register } from "./component/login/index";
-
+import auth from './value';
 export default class LoginApp extends React.Component {
   constructor(props) {
     super(props);

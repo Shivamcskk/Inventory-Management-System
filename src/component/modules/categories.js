@@ -72,7 +72,10 @@ export default function Categories(){
             brand:"Not found",
             category:"Not found",
             price:"Not found",
-            Stocks:"Not found"
+            Stocks:"Not found",
+            Zone:"Not found",
+            Row:"Not found",
+            Column:"Not found"
         }])
            else
             setRow(ne);
@@ -106,6 +109,11 @@ export default function Categories(){
                             <TableCell >Brand</TableCell>
                             <TableCell >Price</TableCell>
                             <TableCell >Stocks</TableCell>
+                            <TableCell >Zone</TableCell>
+                            <TableCell >Row</TableCell>
+                            <TableCell >Column</TableCell>
+                            
+
                        </TableRow>
                    </TableHead>
                    <TableBody>
@@ -117,6 +125,9 @@ export default function Categories(){
                             <TableCell >{row.brand}</TableCell>
                        <TableCell >{row.price}</TableCell>
                        <TableCell>{row.item_left}</TableCell>
+                       <TableCell>{row.zone}</TableCell>
+                       <TableCell>{row.row}</TableCell>
+                       <TableCell>{row.colum}</TableCell>
                     </TableRow>
         ))}
                    </TableBody>

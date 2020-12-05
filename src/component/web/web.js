@@ -28,7 +28,7 @@ export default function Web(props){
   const fun = async () =>{
     try{
       const res =await Axios.get("http://localhost:3001/api/login");
-     
+     console.log(res.data);
       
     if(res.data.loggedIn == true){
       setName(res.data.user[0]);
@@ -51,6 +51,7 @@ export default function Web(props){
     {
 
     }
+    Axios.defaults.withCredentials = true;
   }
   if(Object.keys(name).length===0 ){fun();
   
@@ -59,13 +60,13 @@ export default function Web(props){
             <div className="web">
             <Navbar/>
             {console.log(props)}
-             <div className="log">{detail.length>0 && <span style={{color:"white",fontSize:"200%"}}>{detail[0].name}'S Inventory Page</span>}</div>
+             <div className="log">{detail.length>0 && <span style={{color:"white",fontSize:"200%"}}>{detail[0].fname}'S Inventory Page</span>}</div>
              <div>
              <div className="butto"  style={{marginTop:"20px"}}>
               <div className="size"   >
               <Link to="/location"><button className="loc"><h1 style={{color:"black"}}>EDIT AND SEE LOCATION TABLE</h1></button></Link>
                
-               
+               {console.log("hi",document.cookie!="")}
 
              
               </div>
@@ -103,7 +104,7 @@ export default function Web(props){
              !Object.keys(detail).length==0  && 
              <div className="butto" style={{backgroundColor:"white",width:"35%",marginTop:"106px",verticalAlign:"top"}} >   
            
-           <h1 style={{color:"black"}}>Name:{detail[0].name}</h1>
+           <h1 style={{color:"black"}}>Name:{detail[0].fname} {detail[0].lname}</h1>
            <br/>
            <h1 style={{color:"black"}}>Address:{detail[0].door_no} {detail[0].str_name} {detail[0].city}</h1>
            <br/>

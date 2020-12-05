@@ -15,6 +15,7 @@ export default function Home()
         <div className="sec">
             <h1 className="h1">IT'S NICE TO MEET YOU</h1>
         </div>
+        {console.log("hi",document.cookie)}
         <div style={{position:"relative"}}>
            
               <Link className="link" to="/login"> <button className="button">Register/Login</button></Link>

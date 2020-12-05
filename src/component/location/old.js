@@ -3,6 +3,7 @@ import "./old.css"
 import Select from 'react-select'
 import {useState} from "react"
 import Axios from "axios";
+
 function Old() {
    const [Zone,setZone]=useState("");
    const [Row,setRow]=useState("");
@@ -37,6 +38,7 @@ const ret=loc.map((key)=>{
     return re;
 })
 const sendDetails= async(e)=>{
+ 
     const res=await Axios.post("http://localhost:3001/api/location",{
          p_name:location,
          row:Row,
@@ -46,6 +48,7 @@ const sendDetails= async(e)=>{
 
   });
 
+ 
   console.log(res);
 
 }

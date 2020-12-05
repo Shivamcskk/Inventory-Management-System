@@ -3,7 +3,7 @@ import {useState,useEffect} from "react";
 import loginImg from "../../login.png";
 import Axios from "axios";
 import { Redirect, Router } from "react-router-dom";
-
+import auth from "../../value"
 export function Login() {
   const [log,setLog]=useState(false);
   const [username,setusername]=useState("");
@@ -29,7 +29,9 @@ export function Login() {
         if(responce.data.message){
             changeMessage(responce);
         }else{
+          auth.authenticate();
           setLog(true);
+         
         }
     });
     Axios.defaults.withCredentials = true;

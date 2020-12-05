@@ -31,7 +31,7 @@ export default function Retail()
                 </button>
                
                
-             <Link className="but" to="/home" style={{display:"block",marginLeft:"625px",textDecoration: "none"}}>Home</Link>
+        
        
           
             </div>

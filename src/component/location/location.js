@@ -30,7 +30,7 @@ export default function Location()
                 }>
                     {cur}
                 </button>
-                <Link className="but" to="/home" style={{display:"block",marginLeft:"625px",textDecoration: "none"}}>Home</Link>
+                
             </div>
         </div>
     )

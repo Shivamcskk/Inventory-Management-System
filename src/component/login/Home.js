@@ -13,9 +13,9 @@ export default function Home()
             <h1 classname="h1">Welcome To Our inventory!</h1>
         </div>
         <div className="sec">
-            <h1 className="h1">IT'S NICE TO MEET YOU</h1>
+            <h1 className="h1">Have A Nice Day!</h1>
         </div>
-        {console.log("hi",document.cookie)}
+        
         <div style={{position:"relative"}}>
            
               <Link className="link" to="/login"> <button className="button">Register/Login</button></Link>

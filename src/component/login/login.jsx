@@ -29,7 +29,10 @@ export function Login() {
         if(responce.data.message){
             changeMessage(responce);
         }else{
-          auth.authenticate();
+            sessionStorage.clear();
+            sessionStorage.setItem('user',username);
+       
+      
           setLog(true);
          
         }

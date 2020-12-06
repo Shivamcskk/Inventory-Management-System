@@ -22,8 +22,8 @@ const User = () => {
             const ress =await Axios.get("http://localhost:3001/api/login");
          
             console.log(ress.data.user[0].username);
-            setusername(ress.data.user[0].username);
-            const res =await Axios.post("http://localhost:3001/api/users/in",{username: await ress.data.user[0].username});
+            setusername(sessionStorage.getItem('user'));
+            const res =await Axios.post("http://localhost:3001/api/users/in",{username: sessionStorage.getItem('user')});
             console.log(res.data);
             setfname(await res.data[0].fname);
             setlname(await res.data[0].lname);

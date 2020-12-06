@@ -31,7 +31,7 @@ export default function Inorder()
             const res =await Axios.get("http://localhost:3001/api/login");
       
             if(res.data.loggedIn == true){
-              setusername(res.data.user[0].username);
+              setusername(sessionStorage.getItem('user'));
             
               
               

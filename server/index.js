@@ -116,19 +116,25 @@ app.post('/api/login',(req,res)=>{
 app.get("/api/login",(req,res)=>{
     //manually updating user bz automatic sessions remembering is not done
     const len=user.length;
-    console.log(req.session)
-    req.session.user = user[len-1];
-    if(req.session.view)
-    req.session.view++;
-    else
-    req.session.view=1;
+    
     
     if(user.length>0){
-        res.send({ loggedIn:true , user:req.session.user,view:req.session.view});
+        res.send({ loggedIn:true , user:user});
     }else{
         res.send({loggedIn:false});
     }
 });
+app.post("/api/login/user",(req,res)=>{
+    const sqlSelect = "SELECT * FROM users WHERE username=?;";
+    db.query(sqlSelect,req.body.username,(err,result)=>{
+        if(err){
+            console.log('error');
+            res.send({err:err});
+        };
+        res.send(result);
+      
+});
+})
 app.get("/api/logout",(req,res)=>{
     
     console.log("done");

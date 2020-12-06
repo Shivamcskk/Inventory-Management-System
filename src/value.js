@@ -1,14 +1,11 @@
     const Auth = {
   
-    authenticate() {
-        localStorage.setItem('auth','1');
-   
-    },
+    
     signout() {
-        localStorage.setItem('auth','0');
+        sessionStorage.clear();
     },
     getAuth() {
-    return localStorage.getItem('auth');
+    return sessionStorage.length;
     }
     };
     export default Auth;

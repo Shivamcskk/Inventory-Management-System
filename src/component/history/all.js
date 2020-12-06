@@ -20,7 +20,7 @@ export default function All(){
         try{
             const ress=await Axios.get("http://localhost:3001/api/login");
             console.log(ress.data.user[0].username)
-          const res =await Axios.post("http://localhost:3001/api/history",{username:ress.data.user[0].username});
+          const res =await Axios.post("http://localhost:3001/api/history",{username:sessionStorage.getItem('user')});
           console.log(res.data);
          
          setinRows(res.data);

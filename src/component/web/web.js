@@ -22,38 +22,28 @@ const useStyles = makeStyles((theme) => ({
 export default function Web(props){
   const classes = useStyles();
 
-     const [name,setName]=useState({});
+     const [name,setName]=useState([]);
      const [detail,setdetail]=useState([]);
+     const [log,setLog]=useState(false);
   
   const fun = async () =>{
-    try{
-      const res =await Axios.get("http://localhost:3001/api/login");
-     console.log(res.data);
+  
+      const res =await Axios.post("http://localhost:3001/api/login/user",{username:sessionStorage.getItem('user')});
+      console.log(await res.data)
+      setName(res.data)
       
-    if(res.data.loggedIn == true){
-      setName(res.data.user[0]);
-      try{
-        const ress=await Axios.post("http://localhost:3001/api/users/in",{username:res.data.user[0].username});
+    
+   
+        const ress=await Axios.post("http://localhost:3001/api/users/in",{username:sessionStorage.getItem('user')});
         setdetail(ress.data);
         console.log(ress.data);
         
-      }
-      catch(err)
-      {
-
-      }
-     
-    }
-
-    
-  }
-    catch(err)
-    {
-
-    }
+   
     Axios.defaults.withCredentials = true;
   }
-  if(Object.keys(name).length===0 ){fun();
+  if(!log){
+    fun();
+    setLog(true);
   
   }
         return(
@@ -110,7 +100,7 @@ export default function Web(props){
            <br/>
            <h1 style={{color:"black"}}>Mobile:{detail[0].mobile}</h1>
            <br/>
-           <h1 style={{color:"black"}}>Email:{name.email}</h1>
+           <h1 style={{color:"black"}}>Email:{name[0].email}</h1>
            <br/>
          
          </div>

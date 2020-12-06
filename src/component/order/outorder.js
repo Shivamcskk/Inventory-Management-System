@@ -31,7 +31,7 @@ export default function Outorder()
             const resss =await Axios.get("http://localhost:3001/api/login");
       
             if(resss.data.loggedIn == true){
-              setusername(resss.data.user[0].username);
+              setusername(sessionStorage.getItem('user'));
             
               
               

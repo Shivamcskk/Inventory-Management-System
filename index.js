@@ -51,10 +51,10 @@ app.use(session({
 );
 
 const db = mysql.createPool({
-    host:'localhost',
-    user:'root',
-    password:'',
-    database:'dbms'
+    host:'b1mebdpwmz2zrro22wko-mysql.services.clever-cloud.com',
+    user:'umkyeebo71qzj6aj',
+    password:'2rH3wjWnu05cW3PCc6DU',
+    database:'b1mebdpwmz2zrro22wko'
 });
 
 

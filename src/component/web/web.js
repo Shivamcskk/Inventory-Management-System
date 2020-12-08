@@ -28,13 +28,13 @@ export default function Web(props){
   
   const fun = async () =>{
   
-      const res =await Axios.post("http://localhost:3001/api/login/user",{username:sessionStorage.getItem('user')});
+      const res =await Axios.post("/api/login/user",{username:sessionStorage.getItem('user')});
       console.log(await res.data)
       setName(res.data)
       
     
    
-        const ress=await Axios.post("http://localhost:3001/api/users/in",{username:sessionStorage.getItem('user')});
+        const ress=await Axios.post("/api/users/in",{username:sessionStorage.getItem('user')});
         setdetail(ress.data);
         console.log(ress.data);
         

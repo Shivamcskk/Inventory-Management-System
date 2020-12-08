@@ -25,10 +25,10 @@ export default function Outorder()
     // }
     const fun = async () =>{
         try{
-            const ress =await Axios.get("http://localhost:3001/api/retailer");
-            const res =await Axios.get("http://localhost:3001/api/products");
-            const re =await Axios.get("http://localhost:3001/api/stocks");
-            const resss =await Axios.get("http://localhost:3001/api/login");
+            const ress =await Axios.get("/api/retailer");
+            const res =await Axios.get("/api/products");
+            const re =await Axios.get("/api/stocks");
+            const resss =await Axios.get("/api/login");
       
             if(resss.data.loggedIn == true){
               setusername(sessionStorage.getItem('user'));
@@ -72,7 +72,7 @@ export default function Outorder()
     })
     const sendDetails = async (e) =>{
               
-                const res=await Axios.post("http://localhost:3001/api/order/out",{
+                const res=await Axios.post("/api/order/out",{
                 p_name:p_name.value,
                 price:price,
                 r_name:selectedOption.value,

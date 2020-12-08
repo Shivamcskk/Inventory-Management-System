@@ -18,9 +18,9 @@ export default function All(){
    const [row,setRow]=useState([]);
     const fun = async () =>{
         try{
-            const ress=await Axios.get("http://localhost:3001/api/login");
+            const ress=await Axios.get("/api/login");
             console.log(ress.data.user[0].username)
-          const res =await Axios.post("http://localhost:3001/api/history",{username:sessionStorage.getItem('user')});
+          const res =await Axios.post("/api/history",{username:sessionStorage.getItem('user')});
           console.log(res.data);
          
          setinRows(res.data);

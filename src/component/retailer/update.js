@@ -14,7 +14,7 @@ function New()
     const [r_number,setr_number]=useState("");
     const [ret,setret]=useState([]);
     const sendDetails=async(e)=>{
-        const result=await Axios.post("http://localhost:3001/api/retailer/update",{
+        const result=await Axios.post("/api/retailer/update",{
             r_name:r_name,
             r_number:r_number,
             door_no:door_no,
@@ -25,7 +25,7 @@ function New()
     }
     const fun= async()=>{
         try{
-            const ress =await Axios.get("http://localhost:3001/api/retailer");
+            const ress =await Axios.get("/api/retailer");
          
             console.log(ress.data);
             setret(ress.data);
@@ -39,7 +39,7 @@ function New()
     const dett= async(e)=>{
         setr_name(e);
         try{
-            const ress =await Axios.post("http://localhost:3001/api/retailer/det",{
+            const ress =await Axios.post("/api/retailer/det",{
                 r_name:e.value
             });
          

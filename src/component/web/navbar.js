@@ -32,7 +32,7 @@ function Navbar() {
     }
   };
   const sendDetail=async(e)=>{
-  const ress =await Axios.get("http://localhost:3001/api/logout");
+  const ress =await Axios.get("/api/logout");
   Auth.signout();
   console.log(ress);
  

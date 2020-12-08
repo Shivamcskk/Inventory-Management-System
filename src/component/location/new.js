@@ -39,7 +39,7 @@ const ret=loc.map((key)=>{
 })
 const sendDetails= async(e)=>{
   
-    const res=await Axios.post("http://localhost:3001/api/location",{
+    const res=await Axios.post("/api/location",{
          p_name:location,
          row:Row,
          column:Column,

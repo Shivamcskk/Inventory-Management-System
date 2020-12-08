@@ -10,7 +10,7 @@ function New()
     const [city,setcity]=useState("");
     const [r_number,setr_number]=useState("");
     const sendDetails=async(e)=>{
-        const result=await Axios.post("http://localhost:3001/api/retailer/new",{
+        const result=await Axios.post("/api/retailer/new",{
             r_name:r_name,
             r_number:r_number,
             door_no:door_no,

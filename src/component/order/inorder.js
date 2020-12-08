@@ -24,11 +24,11 @@ export default function Inorder()
     }
     const fun = async () =>{
         try{
-            const ress =await Axios.get("http://localhost:3001/api/retailer");
+            const ress =await Axios.get("/api/retailer");
          
             console.log(ress.data);
             setRetailer(ress.data);
-            const res =await Axios.get("http://localhost:3001/api/login");
+            const res =await Axios.get("/api/login");
       
             if(res.data.loggedIn == true){
               setusername(sessionStorage.getItem('user'));
@@ -59,7 +59,7 @@ export default function Inorder()
     })
     const sendDetails = async (e) =>{
               
-                const res=await Axios.post("http://localhost:3001/api/order/in",{
+                const res=await Axios.post("/api/order/in",{
               p_name:p_name,
                 price:price,
                 r_name:selectedOption.value,

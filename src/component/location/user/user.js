@@ -19,11 +19,11 @@ const User = () => {
 
     const fun= async()=>{
         try{
-            const ress =await Axios.get("http://localhost:3001/api/login");
+            const ress =await Axios.get("/api/login");
          
             console.log(ress.data.user[0].username);
             setusername(sessionStorage.getItem('user'));
-            const res =await Axios.post("http://localhost:3001/api/users/in",{username: sessionStorage.getItem('user')});
+            const res =await Axios.post("/api/users/in",{username: sessionStorage.getItem('user')});
             console.log(res.data);
             setfname(await res.data[0].fname);
             setlname(await res.data[0].lname);
@@ -45,7 +45,7 @@ const User = () => {
     console.log("1");
     }
     const sendDetails =async()=>{
-        const result=await Axios.post("http://localhost:3001/api/users",{
+        const result=await Axios.post("/api/users",{
             username:username,
             mobile:mobile,
             door_no:door_no,

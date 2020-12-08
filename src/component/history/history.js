@@ -18,7 +18,7 @@ export default function Product(){
    const [row,setRow]=useState([]);
     const fun = async () =>{
         try{
-          const res =await Axios.get("http://localhost:3001/api/history/all");
+          const res =await Axios.get("/api/history/all");
           console.log(res.data);
          
          setinRows(res.data);

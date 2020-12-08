@@ -14,7 +14,7 @@ const Contact = () => {
     const handleSubmit = async(e) => {
       e.preventDefault();
       setLoader(true);
-       const logg=await Axios.post("http://localhost:3001/api/contact",{
+       const logg=await Axios.post("/api/contact",{
         username: name,
         message: message
        })

@@ -19,7 +19,7 @@ function Dropdown(item) {
   Axios.defaults.withCredentials = true;
   console.log("hahahahah")
     
-      const logg=await Axios.post("http://localhost:3001/api/products/recent",{
+      const logg=await Axios.post("/api/products/recent",{
         rec:item,
         
       });
@@ -30,7 +30,7 @@ function Dropdown(item) {
   const [row,setRow]=useState([]);
   const fun = async () =>{
       try{
-        const res =await Axios.get("http://localhost:3001/api/products/categories");
+        const res =await Axios.get("/api/products/categories");
         console.log(res.data);
        
        

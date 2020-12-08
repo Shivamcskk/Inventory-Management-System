@@ -23,8 +23,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "star":"cd client && npm run start",
+    "install-server": "cd server && npm install",
+    "heroku-postbuild":"npm run install-client && npm run star"
+    
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +50,6 @@
   },
   "devDependencies": {
     "webpack": "^4.44.2"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

@@ -19,9 +19,9 @@ export default function Categories(){
    const [row,setRow]=useState([]);
     const fun = async () =>{
         try{
-            const ress =await Axios.get("http://localhost:3001/api/products/recent");
+            const ress =await Axios.get("/api/products/recent");
             console.log(ress.data);
-          const res =await Axios.post("http://localhost:3001/api/products/categories",{
+          const res =await Axios.post("/api/products/categories",{
             category:ress.data.rec,
           });
           console.log(res.data);

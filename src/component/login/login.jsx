@@ -21,7 +21,7 @@ export function Login() {
   }
 
   const sendLoginDetails = () =>{
-      Axios.post("http://localhost:3001/api/login",{
+      Axios.post("/api/login",{
         username:username,
         password:password
     }).then((responce)=>{
@@ -41,7 +41,7 @@ export function Login() {
   }
 
   useEffect(()=>{
-      Axios.get("http://localhost:3001/api/login").then((responce)=>{
+      Axios.get("/api/login").then((responce)=>{
           if(responce.data.loggedIn == true){
             console.log(responce.data);
           }

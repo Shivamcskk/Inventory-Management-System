@@ -13,7 +13,7 @@ function Old() {
    const [location,setlocation]=useState("");
    const fun= async()=>{
     try{
-        const ress =await Axios.get("http://localhost:3001/api/location/update");
+        const ress =await Axios.get("/api/location/update");
      
         console.log(ress.data);
         setloc(ress.data);
@@ -39,7 +39,7 @@ const ret=loc.map((key)=>{
 })
 const sendDetails= async(e)=>{
  
-    const res=await Axios.post("http://localhost:3001/api/location",{
+    const res=await Axios.post("/api/location",{
          p_name:location,
          row:Row,
          column:Column,

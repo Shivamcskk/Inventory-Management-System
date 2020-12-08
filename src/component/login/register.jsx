@@ -18,7 +18,7 @@ const changePassword = (event) =>{
     setPassword(event.target.value);
 }
 const sendDetails = () =>{
-  Axios.post("http://localhost:3001/api/register",{
+  Axios.post("/api/register",{
       username:username,
       email:email,
       password:password

@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "star":"cd client && npm run start",
+    "star":"cd server && npm run start",
     "install-server": "cd server && npm install",
     "heroku-postbuild":"npm run install-client && npm run star"
     

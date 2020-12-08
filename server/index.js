@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const cors = require('cors');
+
 const mysql = require('mysql');
 const gravatar=require('gravatar')
 const products = require('./routes/products.js');
@@ -22,9 +22,7 @@ const { use } = require('./routes/retail');
 let user = [];
 
 app.use(express.json());
-app.use(
-    cors()
-);
+
 app.use(cookieparser('secret'));
 app.use(cookieParser('secret'));
 app.use(bodyParser.urlencoded({extended:true}));

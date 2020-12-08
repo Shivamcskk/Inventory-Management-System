@@ -42,9 +42,9 @@ h1{
     
     display: inline-block;
     width: 50%;
-    min-height: 50vh;
+    min-height: 70vh;
     font-family:  "Comic Sans MS", cursive, sans-serif;
-    overflow:"hidden";
+    overflow: hidden;
    
 }
 .size

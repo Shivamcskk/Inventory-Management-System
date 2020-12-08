@@ -90,18 +90,18 @@ export default function Web(props){
               
                </div>
               </div>
+              
            {
              !Object.keys(detail).length==0  && 
-             <div className="butto" style={{backgroundColor:"white",width:"35%",marginTop:"106px",verticalAlign:"top"}} >   
+             <div className="butto" style={{backgroundColor:"white",width:"35%",marginTop:"45px",verticalAlign:"top"}} >   
+              <img src={name[0].img}  style={{marginLeft:"27%",width:"50%",height:"50%"}}/>
+              <h1 style={{color:"black"}}>Name:{detail[0].fname} {detail[0].lname}</h1>
+           <div><h1 style={{color:"black"}}>Address:{detail[0].door_no} {detail[0].str_name} {detail[0].city}</h1></div>
            
-           <h1 style={{color:"black"}}>Name:{detail[0].fname} {detail[0].lname}</h1>
-           <br/>
-           <h1 style={{color:"black"}}>Address:{detail[0].door_no} {detail[0].str_name} {detail[0].city}</h1>
-           <br/>
-           <h1 style={{color:"black"}}>Mobile:{detail[0].mobile}</h1>
-           <br/>
-           <h1 style={{color:"black"}}>Email:{name[0].email}</h1>
-           <br/>
+           <div><h1 style={{color:"black"}}>Mobile:{detail[0].mobile}</h1></div>
+           
+           <div>    <h1 style={{color:"black"}}>Email:{name[0].email}</h1></div>
+       
          
          </div>
            }

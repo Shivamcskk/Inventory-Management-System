@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mysql = require('mysql');
-
+const gravatar=require('gravatar')
 const products = require('./routes/products.js');
 const contact=require('./routes/contact')
 const retailer=require('./routes/retail')
@@ -67,11 +67,16 @@ app.post('/api/register',(req,res)=>{
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
-    const sqlInsert = "INSERT INTO users (username,email,password) VALUES(?,?,?);";
+    const img=gravatar.url(email,{
+        s:'200',
+        r:'pg',
+        d:'mm'
+    })
+    const sqlInsert = "INSERT INTO users (username,email,password,img) VALUES(?,?,?,?);";
 
     bcrypt.hash(password,saltRounds,(err,hash)=>{
         if(err) res.send({err:err});
-        db.query(sqlInsert,[username,email,hash],(err,result)=>{
+        db.query(sqlInsert,[username,email,hash,img],(err,result)=>{
             if(err) console.log(err);
             res.send(result);
         });

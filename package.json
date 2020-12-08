@@ -25,9 +25,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "star":"cd server && npm run start",
+    "star":"cd server && node index",
     "install-server": "cd server && npm install",
-    "heroku-postbuild":"npm run install-client && npm run star"
+    "heroku-postbuild":"npm run install-server && npm run star"
     
   },
   "eslintConfig": {

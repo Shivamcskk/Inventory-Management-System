@@ -23,11 +23,7 @@ let user = [];
 
 app.use(express.json());
 app.use(
-    cors({
-    origin:["http://localhost:3000"],
-    methods:["GET","POST"],
-    credentials:true,
-    })
+    cors()
 );
 app.use(cookieparser('secret'));
 app.use(cookieParser('secret'));
@@ -148,7 +144,7 @@ app.get("/api/logout",(req,res)=>{
     
 })
 
-
-app.listen(3001,()=>{
-    console.log('server listening to port 3001');
+const PORT=3001 ||process.env.PORT;
+app.listen(PORT,()=>{
+console.log(`server listening to port ${PORT}`);
 })
